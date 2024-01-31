@@ -1,6 +1,54 @@
 # how to build
 
+## Modification for risc-v eyenix
+- 
 ## compile
+```bash
+cmake --no-warn-unused-cli -DCMAKE_TOOLCHAIN_FILE=riscv.toolchain -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=/opt/riscv/eyenix/bin/riscv64-eyenix-elf-gcc -DCMAKE_CXX_COMPILER:FILEPATH=/opt/riscv/eyenix/bin/riscv64-eyenix-elf-g++ -S/home/sungyong/workspace/gitlab/ihancore/v4l2rtspserver -B/home/sungyong/workspace/gitlab/ihancore/v4l2rtspserver/build -G "Unix Makefiles"
+
+make
+```
+
+## usage
+```bash
+root@en675: build# ./v4l2rtspserver -
+./v4l2rtspserver [-v[v]] [-Q queueSize] [-O file]
+                  [-I interface] [-P RTSP port] [-p RTSP/HTTP port] [-m multicast url] [-u unicast url] [-M multicast addr] [-c] [-t timeout] [-T] [-S[duration]]
+                  [-r] [-w] [-s] [-f[format] [-W width] [-H height] [-F fps] [device] [device]
+         -v               : verbose
+         -vv              : very verbose
+         -Q <length>      : Number of frame queue  (default 5)
+         -O <output>      : Copy captured frame to a file or a V4L2 device
+         -b <webroot>     : path to webroot
+         RTSP/RTP options
+         -I <addr>        : RTSP interface (default autodetect)
+         -P <port>        : RTSP port (default 8554)
+         -p <port>        : RTSP over HTTP port (default 0)
+         -U <user>:<pass> : RTSP user and password
+         -R <realm>       : use md5 password 'md5(<username>:<realm>:<password>')
+         -u <url>         : unicast url (default unicast)
+         -m <url>         : multicast url (default multicast)
+         -M <addr>        : multicast group:port (default is random_address:20000)
+         -c               : don't repeat config (default repeat config before IDR frame)
+         -t <timeout>     : RTCP expiration timeout in seconds (default 65)
+         -S[<duration>]   : enable HLS & MPEG-DASH with segment duration  in seconds (default 2)
+         -x <sslkeycert>  : enable RTSPS & SRTP
+         V4L2 options
+         -r               : V4L2 capture using read interface (default use memory mapped buffers)
+         -w               : V4L2 capture using write interface (default use memory mapped buffers)
+         -B               : V4L2 capture using blocking mode (default use non-blocking mode)
+         -s               : V4L2 capture using live555 mainloop (default use a reader thread)
+         -f               : V4L2 capture using current capture format (-W,-H,-F are ignored)
+         -f<format>       : V4L2 capture using format (-W,-H,-F are used)
+         -W <width>       : V4L2 capture width (default 0)
+         -H <height>      : V4L2 capture height (default 0)
+         -F <fps>         : V4L2 capture framerate (default 25)
+         -G <w>x<h>[x<f>] : V4L2 capture format (default 0x0x25)
+         Devices :
+         [V4L2 device][,ALSA device] : V4L2 capture device or/and ALSA capture device (default /dev/video0,/dev/video0)
+```
+
+## troubleshooting
 
 ```bash
 export PATH=/opt/riscv/eyenix/bin:$PATH
@@ -69,6 +117,3 @@ cmake --no-warn-unused-cli -DCMAKE_TOOLCHAIN_FILE=riscv.toolchain -DCMAKE_BUILD_
 ```
 
 
-```bash
-cmake --no-warn-unused-cli -DCMAKE_TOOLCHAIN_FILE=riscv.toolchain -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=/opt/riscv/eyenix/bin/riscv64-eyenix-elf-gcc -DCMAKE_CXX_COMPILER:FILEPATH=/opt/riscv/eyenix/bin/riscv64-eyenix-elf-g++ -S/home/sungyong/workspace/gitlab/ihancore/v4l2rtspserver -B/home/sungyong/workspace/gitlab/ihancore/v4l2rtspserver/build -G "Unix Makefiles"
-```
