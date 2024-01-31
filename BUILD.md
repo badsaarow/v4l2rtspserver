@@ -4,8 +4,9 @@
 - 
 ## compile
 ```bash
-cmake --no-warn-unused-cli -DCMAKE_TOOLCHAIN_FILE=riscv.toolchain -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=/opt/riscv/eyenix/bin/riscv64-eyenix-elf-gcc -DCMAKE_CXX_COMPILER:FILEPATH=/opt/riscv/eyenix/bin/riscv64-eyenix-elf-g++ -S/home/sungyong/workspace/gitlab/ihancore/v4l2rtspserver -B/home/sungyong/workspace/gitlab/ihancore/v4l2rtspserver/build -G "Unix Makefiles"
+cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=/opt/riscv/eyenix/bin/riscv64-eyenix-linux-gnu-gcc -DCMAKE_CXX_COMPILER:FILEPATH=/opt/riscv/eyenix/bin/riscv64-eyenix-linux-gnu-g++ -S/home/sungyong/workspace/gitlab/ihancore/v4l2rtspserver -B/home/sungyong/workspace/gitlab/ihancore/v4l2rtspserver/build -G "Unix Makefiles"
 
+cd build
 make
 ```
 
@@ -116,4 +117,9 @@ make: *** [Makefile:166: all] Error 2
 cmake --no-warn-unused-cli -DCMAKE_TOOLCHAIN_FILE=riscv.toolchain -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=/opt/riscv/eyenix/bin/riscv64-eyenix-elf-gcc -DCMAKE_CXX_COMPILER:FILEPATH=/opt/riscv/eyenix/bin/riscv64-eyenix-elf-g++ -S/home/sungyong/workspace/gitlab/ihancore/v4l2rtspserver -B/home/sungyong/workspace/gitlab/ihancore/v4l2rtspserver/build -G "Unix Makefiles"
 ```
 
+```bash
+```bash
+cmake --no-warn-unused-cli -DCMAKE_TOOLCHAIN_FILE=riscv.toolchain -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=/opt/riscv/eyenix/bin/riscv64-eyenix-elf-gcc -DCMAKE_CXX_COMPILER:FILEPATH=/opt/riscv/eyenix/bin/riscv64-eyenix-elf-g++ -S/home/sungyong/workspace/gitlab/ihancore/v4l2rtspserver -B/home/sungyong/workspace/gitlab/ihancore/v4l2rtspserver/build -G "Unix Makefiles"
+```
+- fail by THREAD
 
