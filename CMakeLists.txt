@@ -1,11 +1,12 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 
 project(v4l2rtspserver)
 
 option(COVERAGE "Coverage" OFF)
-option (WITH_SSL "Enable SSL support" ON)
+option (WITH_SSL "Enable SSL support" OFF)
 
-set(ALSA ON CACHE BOOL "use ALSA if available")
+# set(ALSA ON CACHE BOOL "use ALSA if available")
+set(ALSA OFF)
 set(STATICSTDCPP ON CACHE BOOL "use gcc static lib if available")
 set(LOG4CPP OFF CACHE BOOL "use log4cpp if available")
 set(LIVE555URL http://www.live555.com/liveMedia/public/live555-latest.tar.gz CACHE STRING "live555 url")
@@ -15,7 +16,7 @@ if(NOT CMAKE_BUILD_TYPE)
      set (CMAKE_BUILD_TYPE "Release")
 endif()
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 11)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake/")
 
